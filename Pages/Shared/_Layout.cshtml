@@ -1,0 +1,345 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - BookStore</title>
+
+    <environment include="Development">
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="~/css/site.css" />
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
+              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+    </environment>
+    <environment include="Development">
+
+        <script>window.dataLayer = [];</script>
+        <!-- Google Tag Manager -->
+        <script>
+            (function (w, d, s, l, i) {
+                w[l] = w[l] || []; w[l].push({
+                    'gtm.start':
+                        new Date().getTime(), event: 'gtm.js'
+                }); var f = d.getElementsByTagName(s)[0],
+                    j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                        'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+            })(window, document, 'script', 'dataLayer', 'GTM-MGKBKT5');</script>
+        <!-- End Google Tag Manager -->
+
+        <script>
+            var _hmt = _hmt || [];
+            (function () {
+                var hm = document.createElement('script');
+                hm.src = 'https://hm.baidu.com/hm.js?8dfa8fb7ffbd0407c8562282198066a6';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(hm, s);
+            })();
+        </script>
+
+        <!-- Favicons -->
+        <link rel='apple-touch-icon' sizes='180x180' href='/assets/favicons/apple-touch-icon.png'>
+        <link rel='icon' type='image/png' href='~/images/icons/icon-close.svg' sizes='32x32'>
+        <link rel='icon' type='image/png' href='~/images/icons/icon-close.svg' sizes='16x16'>
+        <link rel='manifest' href='/assets/favicons/manifest.json'>
+        <link rel='mask-icon' href='/assets/favicons/safari-pinned-tab.svg' color='#ef233c'>
+        <link rel='shortcut icon' href='/assets/favicons/favicon.ico'>
+        <meta name='msapplication-config' content='/assets/favicons/browserconfig.xml'>
+        <meta name='theme-color' content='#ffffff'>
+
+
+        <!-- CSS -->
+        <link rel='stylesheet' href='~/css/styles.css?201811271802'>
+        <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+        <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    </environment>
+</head>
+<body class='lang-zh page-menu-beverages' ontouchstart=''>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+        <iframe src='https://www.googletagmanager.com/ns.html?id=GTM-MGKBKT5'
+                height='0' width='0' style='display:none;visibility:hidden'></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <environment include="Development">
+        <script>
+            var isChrome = ((navigator.userAgent.toLowerCase().indexOf('chrome') > -1) && (navigator.vendor.toLowerCase().indexOf('google') > -1) || navigator.userAgent.match('CriOS'));
+            if (isChrome) document.body.classList.add('chrome');
+        </script>
+    </environment>
+
+    <div id='app-view-wrapper'>
+        <!-- Navigation panel -->
+
+
+
+
+
+        <nav id='nav'>
+            <div class='container'>
+                <header class='header'>
+
+                    <div class='primary'>
+                        <ul>
+
+                            <li class='stores'>
+                                <a id='stores-primary' href='/sto<%=request.getContextPath()%>/res/'>
+                                    购物车
+                                </a>
+                            </li>
+
+                            <li class='account'>
+                                <a id='account-primary' href='/account/'>
+                                    我的帐户
+                                </a>
+                            </li>
+
+                            <li class='menu'>
+                                <a id='menu-primary' href='/menu/'>
+                                    菜单
+                                </a>
+                            </li>
+
+                        </ul>
+                        <partial name="_LoginPartial" />
+                    </div>
+
+                    <a class='icon trigger' rel='nav-overlay' id='nav-menu'>
+                        <img src='~/images/icons/icon-hamburger.svg' />
+                        <span>更多</span>
+                    </a>
+
+                </header>
+
+                <div class='body'>
+                    <nav class='container middle secondary'>
+
+
+
+                        <a href='/menu/' class='back'>
+                            <img src='~/images/icons/icon-chevron-left.svg' />
+                            菜单
+                        </a>
+
+                        <div class='display-1'>所有菜品</div>
+                        <div class='tabs-wrapper'>
+                            <ul class='subcategories'>
+
+                                <li>
+                                    <a id='side_menu_all' href='/menu/beverages/' class='active'>
+                                        全部
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a id='side_menu_cold_foam_cold_brew' href='/menu/beverages/cold-foam-cold-brew/'>
+                                        全部分类
+                                    </a>
+                                </li>
+                                <li>
+                                    <a id='side_menu_cold_foam_cold_brew_stable' href='/menu/beverages/cold-foam-cold-brew/'>
+                                        主食
+                                    </a>
+                                </li>
+                                <li>
+                                    <a id='side_menu_cold_foam_cold_brew_cold' href='/menu/beverages/cold-foam-cold-brew/'>
+                                        凉菜
+                                    </a>
+                                </li>
+                                <li>
+                                    <a id='side_menu_cold_foam_cold_brew_hot' href='/menu/beverages/cold-foam-cold-brew/'>
+                                        热菜
+                                    </a>
+                                </li>
+                                <li>
+                                    <a id='side_menu_cold_foam_cold_brew_drink' href='/menu/beverages/cold-foam-cold-brew/'>
+                                        饮品
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </div>
+
+                    </nav>
+
+                </div>
+            </div>
+
+
+            <div class='overlay ' id='nav-overlay'>
+                <div class='container'>
+                    <header class='header'>
+                        <a class='logo' href='/'>
+                        </a>
+                        <button class='icon close'>Close</button>
+                    </header>
+                    <section class='body'>
+                        <div class='container middle'>
+                            <ul>
+
+                                <li>
+                                    <a id='stores-overlay' href='/sto<%=request.getContextPath()%>/res/'>
+                                        购物车
+                                    </a>
+                                </li>
+
+
+                                <li>
+                                    <a id='account-overlay' href='/account/'>
+                                        我的帐户
+                                    </a>
+                                </li>
+
+
+                                <li>
+                                    <a id='menu-overlay' href='/menu/'>
+                                        菜单
+                                    </a>
+                                </li>
+                            </ul>
+                            <footer class='account'>
+                                <div id='account-logout'></div>
+                            </footer>
+                        </div>
+                    </section>
+                    <footer class='footer'>
+                        <div class='container'>
+
+
+
+
+
+                            <a id='en-collapse' class='lang' href='javascript:void(window.location.pathname = "/en/menu/beverages/")'>
+                                English
+                            </a>
+
+
+
+                            |
+                            <a id='privacy-collapse' href='/help/legal/privacy-policy'>
+                                隐私政策
+                            </a>
+                            |
+                            <a id='terms-collapse' href='/help/legal/terms-of-starbucks-website/'>
+                                使用条款
+                            </a>
+                            <div class='legal'>
+
+                                <!-- <div class='copyright'>© 2017 Starbucks Corporation.</div> -->
+
+                            </div>
+                        </div>
+                    </footer>
+                </div>
+            </div>
+
+        </nav>
+        @*<nav class="navbar navbar-inverse navbar-fixed-top">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a asp-page="/Index" class="navbar-brand">BookStore</a>
+                    </div>
+                    <div class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav">
+                            <li><a asp-page="/Index">Home</a></li>
+                            <li><a asp-page="/About">About</a></li>
+                            <li><a asp-page="/Contact">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>*@
+
+        <partial name="_CookieConsentPartial" />
+        <section id='content'>
+
+
+            <div class='wrapper fluid margin page-menu-list'>
+
+                <div class="container body-content">
+                    @RenderBody()
+                    <hr />
+                    <footer>
+                        <p>&copy; 2018 - WebApplication3</p>
+                    </footer>
+                </div>
+            </div>
+
+
+            <div class='overlay' id='menu-search-overlay'>
+                <header class='header'>
+                    <button class='icon close'>Close</button>
+                </header>
+                <div class='body'>
+                    <div class='field search'>
+                        <img src='~/images/icons/icon-search.svg' class='icon' />
+                        <input type='text' id='menu-search-input' placeholder='搜索菜单' />
+                    </div>
+                    <div id='menu-search-empty'></div>
+                    <ul class='grid columns-4 padded-2' id='menu-search-results'></ul>
+                </div>
+            </div>
+            <div class='frap'>
+                <button id="featured-campaign-search" class='button primary trigger' rel='menu-search-overlay'>搜索菜单</button>
+            </div>
+
+
+            <div id='app-notification'></div>
+        </section>
+        <partial name="_CookieConsentPartial" />
+
+        <environment include="Development">
+            <script src="~/lib/jquery/dist/jquery.js"></script>
+            <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+            <script src="~/js/site.js" asp-append-version="true"></script>
+        </environment>
+        <environment exclude="Development">
+            <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.3.1.min.js"
+                    asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+                    asp-fallback-test="window.jQuery"
+                    crossorigin="anonymous"
+                    integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT">
+            </script>
+            <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/bootstrap.min.js"
+                    asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
+                    asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
+                    crossorigin="anonymous"
+                    integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa">
+            </script>
+            <script src="~/js/site.min.js" asp-append-version="true"></script>
+        </environment>
+    </div>
+    <environment include="Development">
+
+        <script>
+            var PAGE_LANG = 'zh';
+            var PAGE_TITLE = '饮料';
+            var PAGE_URL = '/menu/beverages/';
+            var SEARCH_EMPTY = '未找到结果，猜你喜欢';
+            var SEARCH_POPULAR = '大家都在搜';
+            var SURVEY_URL = 'https://api.splashform.com/api';
+        </script>
+        <script type='text/javascript' src='~/js/jquery.min.js'></script>
+        <script type='text/javascript' src='~/js/polyfill.min.js'></script>
+        <script type='text/javascript' src='~/js/fastclick.js'></script>
+        <script type='text/javascript' src='~/js/scripts.js'></script>
+        <script type='text/javascript' src='~/js/tracker.js'></script>
+        <script type='text/javascript' src='~/js/common.bundle.js?201811271802'></script>
+        <script type='text/javascript' src='~/js/vendor.bundle.js?201811271802'></script>
+        <script type='text/javascript' src='~/js/pages.bundle.js?201811271802'></script>
+
+
+    </environment>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

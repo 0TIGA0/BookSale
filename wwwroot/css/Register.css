@@ -1,0 +1,15 @@
+﻿body {
+
+}
+
+.row{
+    text-align:center;
+}
+
+.col-md-4 {
+    margin: auto,auto,auto,auto;
+    display:flex;
+    width: 200px;
+    border-radius: 10px;
+    background-color: cadetblue;
+}
